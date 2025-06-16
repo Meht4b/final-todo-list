@@ -7,7 +7,6 @@ function TaskList({CurrentTasks}) {
   return (
     <>
     <div className='TaskList'>
-        {CurrentTasks}
     </div>
     </>
   )

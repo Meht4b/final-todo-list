@@ -1,0 +1,19 @@
+.CreateTask-cont{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    width: 90%;
+    position: relative;
+}
+
+.CreateTask-cont::before{
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200vh;
+    left: -50%;
+    top: 50%;
+    z-index: -1;
+    background-image: linear-gradient(#262626,transparent 300px);
+    border: solid 1px #7E7E7E;
+}

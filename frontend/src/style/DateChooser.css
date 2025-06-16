@@ -1,0 +1,51 @@
+.DateChooser-cont{
+    display: flex;
+
+    justify-content: space-between;
+    padding: 10px 20px;
+    width: clamp(300px,40vw,600px);
+    transition: 0.2s;
+}
+
+
+
+.DateChooser-cont *:hover{
+    cursor: pointer;
+}
+
+button{
+    background-color: transparent;
+    outline: none;
+    border:none;
+    border-radius: inherit;
+
+    position: relative;
+    z-index: 2;
+    transition: 0.2s;
+    background-image: none;
+
+    background-image: linear-gradient(90deg,transparent ,#0a0a0a);
+
+    opacity: 0.5;
+    transition: 0.2s;
+}
+
+button:hover{
+    opacity: 0.9;
+}
+
+.date-day{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.date-day h1{
+    opacity: 0.8;
+    transition: 0.2s;
+}
+
+.date-day h1:hover{
+    opacity: 1;
+}
