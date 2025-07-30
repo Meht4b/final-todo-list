@@ -17,3 +17,30 @@
     background-image: linear-gradient(#262626,transparent 300px);
     border: solid 1px #7E7E7E;
 }
+
+input{
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    opacity: 0.8;
+    transition: 0.2s;
+    color: rgb(195, 195, 195);
+    flex-grow: 1;
+}
+
+input:hover{
+    opacity: 1;
+}
+
+input:focus{
+    outline: none;
+}
+
+button{
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+button:hover{
+    opacity: 1;
+}

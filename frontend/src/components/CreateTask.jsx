@@ -2,12 +2,14 @@ import { useState } from 'react'
 import '../style/CreateTask.css'
 import add from '../assets/add.png' 
 
-function CreateTask({setCurrentTasks}) {
+function CreateTask({tasks,setTasks}) {
+
+
 
 return (
     <>
     <div className='CreateTask-cont std-box'>
-        <p>create new task</p>
+        <input type="text" placeholder='create new task' />
         <button><img src={add} alt="" /></button>
     </div>
     </>

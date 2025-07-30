@@ -7,15 +7,15 @@ import Task from './Task'
 
 function MainBody() {
 
-    const [CurrentTasks,setCurrentTasks] = useState(1)
+    const [tasks, setTasks] = useState([]);
 
     return (
         <>
             <div className='MainBody-cont'>
                 <DateChooser/>
 
-                <CreateTask setCurrentTasks={setCurrentTasks}/>
-                <TaskList CurrentTasks={CurrentTasks}/>
+                <CreateTask />
+                <TaskList />
                 <Task/>
             </div>
         </>
