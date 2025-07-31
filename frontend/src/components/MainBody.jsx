@@ -3,11 +3,10 @@ import '../style/MainBody.css'
 import DateChooser from './DateChooser'
 import CreateTask from './CreateTask'
 import TaskList from './TaskList'
-import Task from './Task'
 
 function MainBody() {
 
-    const [tasks, setTasks] = useState([]);
+    const [tasks, setTasks] = useState(["hello", "world", "this is a task"]);
 
     return (
         <>
@@ -15,8 +14,7 @@ function MainBody() {
                 <DateChooser/>
 
                 <CreateTask />
-                <TaskList />
-                <Task/>
+                <TaskList tasks={tasks} />
             </div>
         </>
   )
