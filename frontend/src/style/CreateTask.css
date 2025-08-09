@@ -18,13 +18,9 @@
     position: relative;
 }
 
-.create-task-form::before{
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 200vw;
-    height: 200vh;
-    color: white;
+.create-task-form::after{
+
+    
+
 }
 
