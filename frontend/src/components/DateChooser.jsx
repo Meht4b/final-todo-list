@@ -1,33 +1,21 @@
-import { useState } from 'react'
+import React from 'react'
 import '../style/DateChooser.css'
 import arrowLeft from '../assets/arrow-left.png'
 import arrowRight from '../assets/arrow-right.png'
-function DateChooser() {
-  const [CurrentDay,setCurrentDay] = useState("Monday")
-  const [CurrentDate,setCurrentDate] = useState("12 jun 2006")
 
+const DateChooser = ({decrementDate,currentDate,incrementDate}) => {
   return (
     <>
-    <div className='DateChooser-cont std-box'>
-      <button className='left'>
-        <img src={arrowLeft} alt="" />
-      </button>
-
-      <div className='date-day'>
-        <h1>
-          {CurrentDay}
-        </h1>
-        <h3>
-          {CurrentDate}
-        </h3>
+      <div className='date-chooser-cont'>
+        <button className='date-chooser-btn' onClick={() => decrementDate()}><img src={arrowLeft} /></button>
+        <div className='date-chooser-date'>
+          <h1>{currentDate.toLocaleDateString(undefined, { weekday: 'long' })}</h1>
+          <p>{currentDate.toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+        </div>
+        <button className='date-chooser-btn' onClick={() => incrementDate()}><img src={arrowRight} /></button>
       </div>
-
-      <button className='right'>
-        <img src={arrowRight} alt="" />
-      </button>
-
-    </div>
     </>
   )
 }
+
 export default DateChooser

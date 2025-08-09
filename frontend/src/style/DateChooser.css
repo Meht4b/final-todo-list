@@ -1,51 +1,46 @@
-.DateChooser-cont{
+.date-chooser-cont{
     display: flex;
-
+    align-items: center;
     justify-content: space-between;
-    padding: 10px 20px;
-    width: clamp(300px,40vw,600px);
-    transition: 0.2s;
+    gap: 10px;
+    background-color: #0A0A0A;
+    width: clamp(300px,70%, 500px);
+
+    border: solid 1px #2D2D2D;
+    border-radius: 10px;
+    padding: 10px 10px;
+    box-shadow: 0px 0px 22px rgba(56, 56, 56, 0.403);
 }
 
+.date-chooser-date{
+    text-align: center;
+}
 
-
-.DateChooser-cont *:hover{
+.date-chooser-date h1{
+    opacity: 0.8;
+    transition: 0.2s;
     cursor: pointer;
 }
 
-button{
+.date-chooser-date h1:hover{
+    opacity: 1;
+    transition: 0.2s;
+}
+
+.date-chooser-cont button{
     background-color: transparent;
-    outline: none;
-    border:none;
-    border-radius: inherit;
-
-    position: relative;
-    z-index: 2;
+    border: none;
+    opacity: 0.6;
     transition: 0.2s;
-    background-image: none;
-
-    
-
-    opacity: 0.5;
-    transition: 0.2s;
+    font-size: 20px;
+    cursor: pointer;
 }
 
-button:hover{
-    opacity: 0.9;
-}
-
-.date-day{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.date-day h1{
+.date-chooser-cont button:hover{
     opacity: 0.8;
     transition: 0.2s;
 }
 
-.date-day h1:hover{
-    opacity: 1;
+.date-chooser-cont p{
+    font-size: 15px;
 }
