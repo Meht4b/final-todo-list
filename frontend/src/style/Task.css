@@ -1,0 +1,14 @@
+.task-item-cont{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px;
+    text-align: center;
+    width: 90%;
+    position: relative;
+    
+}
+
+.task-item-cont p{
+    text-align: center;
+}
