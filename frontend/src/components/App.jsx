@@ -1,14 +1,16 @@
-import { useState } from 'react'
-import '../style/App.css'
-import MainBody from './MainBody'
+import React from 'react'
+import ToDoWrapper from './ToDoWrapper'
 
-function App() {
-    const [count, setCount] = useState(0)
-    return (
-      <>
-        <MainBody/>
-      </>
-    )
+const App = () => {
+  return (
+    <>
+    <ToDoWrapper />
+    </>
+    
+    
+    
+  )
 }
 
 export default App
+

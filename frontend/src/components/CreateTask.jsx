@@ -1,16 +1,27 @@
-import { useState } from 'react'
+import React from 'react'
+import {v4 as uuidv4} from 'uuid';
+uuidv4();
 import '../style/CreateTask.css'
-import add from '../assets/add.png' 
+import add from '../assets/add.png'
 
-function CreateTask({setCurrentTasks}) {
+const CreateTask = ({addTask}) => {
 
-return (
-    <>
-    <div className='CreateTask-cont std-box'>
-        <p>create new task</p>
-        <button><img src={add} alt="" /></button>
-    </div>
-    </>
-)
+    const [value,setValue] = React.useState('');
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setValue('');
+    };
+
+  return (
+    <form onSubmit={(e) => handleSubmit(e)} className='create-task-form'>
+
+        <input id='title' name='title' placeholder='Create new tasks' className='create-task-input' type="text" value={value} onChange={(e) => {setValue(e.target.value);console.log(value) }}/>
+        
+        <button className='create-task-submit' type="submit" onClick={() => {addTask({id: uuidv4(), title: value, isCompleted: false, isEditing: false})}}><img src={add}/></button>
+
+    </form>
+  )
 }
+
 export default CreateTask
