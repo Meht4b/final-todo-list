@@ -2,7 +2,7 @@ import React from 'react'
 import CheckBox from './CheckBox'
 import '../style/Task.css'
 
-const Task = ({task, toggleTask, toggleEdit,toggleComplete }) => {
+const Task = ({task }) => {
 
   ;
 
