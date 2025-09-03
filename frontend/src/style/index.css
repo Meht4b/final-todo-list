@@ -9,6 +9,10 @@ img {
   -webkit-user-drag: none; /* Prevents dragging on WebKit browsers */
 }
 
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 html {
     background-color: black;
     width: 100%;
