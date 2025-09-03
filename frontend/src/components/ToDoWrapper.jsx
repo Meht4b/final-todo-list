@@ -61,7 +61,7 @@ const ToDoWrapper = () => {
             {
                 tasks
                     .map((task, index) => (
-                        <Task key={index} task={task}  />
+                        <Task key={index} task={task} fetchTasks={fetchTasks}/>
                     ))
             }
         </div>
