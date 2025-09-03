@@ -3,10 +3,8 @@ from flask_jwt_extended import JWTManager, create_access_token, jwt_required, ge
 from config import app, db,jwt
 from models import Users, Tasks
 import os
-import bcrypt
 from datetime import datetime
-
-
+import bcrypt
 
 @app.route('/create_user', methods=['POST'])
 def create_user():
