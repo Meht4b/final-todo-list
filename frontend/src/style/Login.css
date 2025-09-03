@@ -1,0 +1,125 @@
+.login-container{
+    background-color: #0A0A0A;
+    width: clamp(300px, 50%, 450px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    justify-content: center;
+    gap: 10px;
+    border: solid 2px #2d2d2da9;
+    border-radius: 10px;
+    position: relative;
+}
+
+
+
+.login-container::before{
+    content: '';
+    display: block;
+    width: 100vw;
+    height: 40vw;
+    position: fixed;
+    top: 50%;
+    border-top: solid 2px #2d2d2dd6;
+    left: 0;
+    background-image: linear-gradient(#26262671,black);
+    border-radius: 2px;
+    z-index: -1;
+}
+
+.login-container h1{
+    color: white;
+    position: relative;
+    font-weight: 600;
+    margin-bottom: 30px;
+    font-size: clamp(20px, 15vw, 60px);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.login-container h1::after{
+    content: '';
+    display: block;
+    width: calc(100%);
+    height: 2px;
+    position: absolute;
+    left: 0%;
+    background-color: #2d2d2dbb;
+    margin-top: 5px;
+    border-radius: 2px;
+}
+
+.input-group{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 5px;
+}
+
+.input-group input{
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background-color: #1C1C1C;
+    color: rgb(184, 184, 184);
+    border: solid 2px #2d2d2da9;
+}
+
+.login-submit{
+    padding: 10px 20px;
+    border: solid 2px #2d2d2da9;
+    background-color: #1C1C1C;
+    border-radius: 5px;
+    color: rgb(184, 184, 184);
+    margin-top: 30px;
+    margin-bottom: 30px;
+    cursor: pointer;
+    width: clamp(fit-content, 50%, 200px);
+    
+}
+
+.login-submit h2{
+    font-size: 25px;
+    font-weight: 500;
+    color: #CDCDCD;
+}
+
+.register-link{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-bottom: solid   2px #2d2d2da9    ;
+    cursor: pointer;
+}
+
+.register-link h3{
+    color: #969696;
+    transition: 0.2s;
+
+}
+
+.register-link:hover h3{
+    color: white;
+    transition: 0.2s;
+}
+
+.login-error{
+    background-color: #320606;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    position: absolute;
+    bottom: 10px;
+}
+
+.register-success{
+    background-color: #063207;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    position: absolute;
+    bottom: 10px;
+    max-width: 70%;
+}
