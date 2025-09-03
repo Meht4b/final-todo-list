@@ -4,6 +4,7 @@ from config import app, db,jwt
 from models import Users, Tasks
 import os
 import bcrypt
+from datetime import datetime
 
 
 
@@ -68,7 +69,13 @@ def create_task():
 
     task_desc = data.get('task_desc')
     task_status = data.get('task_status')
-    timestamp = data.get('timestamp')
+    timestamp_str = data.get('timestamp')
+    if not timestamp_str:
+        return jsonify({"error": "Timestamp is required"}), 400
+    try:
+        timestamp = datetime.fromisoformat(timestamp_str)
+    except ValueError:
+        return jsonify({"error": "Invalid timestamp format"}), 400
     user_id = int(get_jwt_identity())
     if not task_desc:
         return jsonify({"error": "Task description is required"}), 400
