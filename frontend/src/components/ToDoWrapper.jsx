@@ -24,47 +24,46 @@ const ToDoWrapper = () => {
         setcurrentDate(nextDate);
     }
 
-    const addTask = (task) => {
-        console.log(task);
-        if (task.title.trim() === '') {
-            return;
+    React.useEffect(() => {
+        fetchTasks();
+        const interval = setInterval(fetchTasks, 5000);
+        return () => clearInterval(interval);
+    }, []);
+
+    const fetchTasks = async () => {
+        const url = "http://172.20.186.29:5000/get_tasks";
+        const token = sessionStorage.getItem("token");
+        const options = {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "authorization": "Bearer " + token
+            }
+        };
+        const response = await fetch(url, options);
+        const data = await response.json();
+        if (response.ok) {
+            console.log(data.tasks);
+            setTasks(data.tasks);
+        } else {
+            console.log("error fetching tasks");
+            console.log(data);
         }
-        setTasks([...tasks, { ...task, date: currentDate }]);
     }
 
-    const deleteTask = (id) => {
-        setTasks(tasks.filter((task) => task.id !== id));
-    }
-
-    const toggleEdit = (id) => {
-        setTasks(tasks.map((task) => {
-            if (task.id === id) {
-                return { ...task, isEditing: !task.isEditing };
-            }
-            return task;
-        }));
-    }
-
-    const toggleComplete = (id) => {
-        setTasks(tasks.map((task) => {
-            if (task.id === id) {
-                return { ...task, isCompleted: !task.isCompleted };
-            }
-        }))
-    }
+    
 
   return (
     <>
         <div className="todo-wrapper">
             <DateChooser currentDate = {currentDate} incrementDate = {incrementDate} decrementDate = {decrementDate} />
-            <CreateTask addTask={addTask} />
+            <CreateTask fetchTasks={fetchTasks} />
             {
-                tasks.filter(task => task.date.toDateString() === currentDate.toDateString())
+                tasks
                     .map((task, index) => (
-                        <Task key={index} task={task} deleteTask = {deleteTask} toggleEdit = {toggleEdit} toggleComplete = {toggleComplete} />
+                        <Task key={index} task={task}  />
                     ))
             }
-            
         </div>
     </>
   )
