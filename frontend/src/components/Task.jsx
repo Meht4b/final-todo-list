@@ -2,14 +2,14 @@ import React from 'react'
 import CheckBox from './CheckBox'
 import '../style/Task.css'
 
-const Task = ({task, toggleTask, toggleEdit,toggleComplete }) => {
+const Task = ({task }) => {
 
   ;
 
   return (
     <div className='task-item-cont'>
-        <CheckBox isCompleted={task.isCompleted} toggleComplete={toggleComplete} id = {task.id} />
-        <p>{task.title}</p>
+        <CheckBox isCompleted={task.task_status} id = {task.id} />
+        <p>{task.task_desc}</p>
     </div>
   )
 }
