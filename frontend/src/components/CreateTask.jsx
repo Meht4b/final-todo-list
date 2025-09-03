@@ -12,7 +12,7 @@ const CreateTask = ({fetchTasks}) => {
         e.preventDefault();
         const newTask = value.trim();
         if (newTask.length > 0) {
-          const url = "http://172.20.186.29:5000/create_task";
+          const url = "https://final-todo-list.onrender.com/create_task";
           const token = sessionStorage.getItem("token");
           console.log("Token:", token); // Debugging line to check the token value
           const options = {

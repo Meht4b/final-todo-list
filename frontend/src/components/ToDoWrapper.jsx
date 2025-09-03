@@ -31,7 +31,7 @@ const ToDoWrapper = () => {
     }, []);
 
     const fetchTasks = async () => {
-        const url = "http://172.20.186.29:5000/get_tasks";
+        const url = "https://final-todo-list.onrender.com/get_tasks";
         const token = sessionStorage.getItem("token");
         const options = {
             method: "GET",
