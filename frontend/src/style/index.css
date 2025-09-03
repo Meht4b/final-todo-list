@@ -4,6 +4,10 @@
     margin: 0;
     padding: 0;
 }
+img {
+  user-select: none;     /* Prevents text/image selection */
+  -webkit-user-drag: none; /* Prevents dragging on WebKit browsers */
+}
 
 html {
     background-color: black;
