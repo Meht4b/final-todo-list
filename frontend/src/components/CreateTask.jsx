@@ -47,7 +47,7 @@ const CreateTask = ({fetchTasks,currentDate}) => {
   return (
     <form onSubmit={(e) => handleSubmit(e)} className='create-task-form'>
 
-        <input id='title' name='title' placeholder='Create new tasks' className='create-task-input' type="text" value={value} onChange={(e) => {setValue(e.target.value);console.log(value) }}/>
+        <input id='title' name='title' placeholder='Create new tasks' className='create-task-input' type="text" value={value} onChange={(e) => {setValue(e.target.value) }}/>
         
         <button className='create-task-submit' type="submit" ><img src={add}/></button>
 
