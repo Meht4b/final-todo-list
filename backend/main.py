@@ -68,13 +68,14 @@ def create_task():
 
     task_desc = data.get('task_desc')
     task_status = data.get('task_status')
+    timestamp = data.get('timestamp')
     user_id = int(get_jwt_identity())
     if not task_desc:
         return jsonify({"error": "Task description is required"}), 400
     if not user_id:
         return jsonify({"error": "User ID is required"}), 400
     try:
-        new_task = Tasks(user_id=user_id, task_desc=task_desc,task_status=task_status)
+        new_task = Tasks(user_id=user_id, task_desc=task_desc,task_status=task_status,timestamp=timestamp)
         db.session.add(new_task)
         db.session.commit()
 

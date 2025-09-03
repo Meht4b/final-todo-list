@@ -4,7 +4,7 @@ uuidv4();
 import '../style/CreateTask.css'
 import add from '../assets/add.png'
 
-const CreateTask = ({fetchTasks}) => {
+const CreateTask = ({fetchTasks,currentDate}) => {
 
     const [value,setValue] = React.useState('');
 
@@ -23,7 +23,8 @@ const CreateTask = ({fetchTasks}) => {
               },
               body: JSON.stringify({
                 task_desc: newTask,
-                task_status: false
+                task_status: false,
+                timestamp: currentDate.toISOString()
               }),
           };
               

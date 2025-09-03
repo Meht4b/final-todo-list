@@ -53,20 +53,25 @@ const ToDoWrapper = () => {
 
     
 
-  return (
+return (
     <>
-        <div className="todo-wrapper">
-            <DateChooser currentDate = {currentDate} incrementDate = {incrementDate} decrementDate = {decrementDate} />
-            <CreateTask fetchTasks={fetchTasks} />
-            {
-                tasks
-                    .map((task, index) => (
-                        <Task key={index} task={task} fetchTasks={fetchTasks}/>
-                    ))
-            }
-        </div>
+            <div className="todo-wrapper">
+                    <DateChooser currentDate={currentDate} incrementDate={incrementDate} decrementDate={decrementDate} />
+                    <CreateTask fetchTasks={fetchTasks} currentDate={currentDate}/>
+                    {
+                            tasks
+                                    .filter(task => {
+                                            const taskDate = new Date(task.timestamp);
+                                            taskDate.setHours(0, 0, 0, 0);
+                                            return taskDate.getTime() === currentDate.getTime();
+                                    })
+                                    .map((task, index) => (
+                                            <Task key={index} task={task} fetchTasks={fetchTasks} />
+                                    ))
+                    }
+            </div>
     </>
-  )
+)
 }
 
 export default ToDoWrapper
