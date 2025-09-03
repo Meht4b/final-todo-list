@@ -8,7 +8,7 @@ const Task = ({task, toggleTask, toggleEdit,toggleComplete }) => {
 
   return (
     <div className='task-item-cont'>
-        <CheckBox isCompleted={task.isCompleted} toggleComplete={toggleComplete} id = {task.id} />
+        <CheckBox isCompleted={task.isCompleted}  id = {task.id} />
         <p>{task.title}</p>
     </div>
   )
