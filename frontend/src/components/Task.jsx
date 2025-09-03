@@ -8,8 +8,8 @@ const Task = ({task, toggleTask, toggleEdit,toggleComplete }) => {
 
   return (
     <div className='task-item-cont'>
-        <CheckBox isCompleted={task.isCompleted} toggleComplete={toggleComplete} id = {task.id} />
-        <p>{task.title}</p>
+        <CheckBox isCompleted={task.task_status} id = {task.id} />
+        <p>{task.task_desc}</p>
     </div>
   )
 }

@@ -16,11 +16,9 @@ class Users(db.Model):
 class Tasks(db.Model):
     id = db.Column(db.Integer,primary_key = True,autoincrement=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable = False)
-    task_status = db.Column(db.Boolean, default = False, nullable = False)
-    
     task_desc = db.Column(db.String(500), nullable = False)
     timestamp = db.Column(db.DateTime, server_default=db.func.now(), nullable = False)
-
+    task_status = db.Column(db.Boolean, default=False, nullable = False)
 
 
     def to_json(self):

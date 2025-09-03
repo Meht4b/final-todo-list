@@ -67,13 +67,14 @@ def create_task():
     data = request.get_json()
 
     task_desc = data.get('task_desc')
+    task_status = data.get('task_status')
     user_id = int(get_jwt_identity())
     if not task_desc:
         return jsonify({"error": "Task description is required"}), 400
     if not user_id:
         return jsonify({"error": "User ID is required"}), 400
     try:
-        new_task = Tasks(user_id=user_id, task_desc=task_desc)
+        new_task = Tasks(user_id=user_id, task_desc=task_desc,task_status=task_status)
         db.session.add(new_task)
         db.session.commit()
 
@@ -90,6 +91,7 @@ def update_task():
 
     task_id = data.get('task_id')
     task_desc = data.get('task_desc')
+    task_status = data.get('task_status')
     user_id = int(get_jwt_identity())
     if not task_id:
         return jsonify({"error": "Task ID is required"}), 400
@@ -104,6 +106,7 @@ def update_task():
         return jsonify({"error": "You are not authorized to update this task"}), 403
     try:
         task.task_desc = task_desc
+        task.task_status = task_status
         db.session.commit()
 
         return jsonify({"message": "Task updated successfully", "task": task.to_json()}), 200

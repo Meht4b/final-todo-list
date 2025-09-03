@@ -21,7 +21,7 @@ function Login({propLogin, propError,setLoggedIn,callBack}) {
         const user = { name, password };
 
         if (Login == 0) {
-            const url = "http://192.168.0.106:5000/create_user";
+            const url = "http://172.20.186.29:5000/create_user";
             const options = {
                 method: "POST",
                 headers: {
@@ -44,7 +44,7 @@ function Login({propLogin, propError,setLoggedIn,callBack}) {
         }
 
         if (Login == 1) {
-            const url = "http://192.168.0.106:5000/check_password"
+            const url = "http://172.20.186.29:5000/check_password"
             const options = {
                 method: "POST",
                 headers: {
@@ -63,6 +63,8 @@ function Login({propLogin, propError,setLoggedIn,callBack}) {
                 sessionStorage.setItem("token", data.access_token);
                 sessionStorage.setItem("loggedIn", 1);
                 sessionStorage.setItem("user", name);
+                console.log("logged in");
+                console.log(sessionStorage.getItem("token"));
                 setLoggedIn(1);
                 callBack();
             }else if(response.status == 401 || response.status == 403) {
